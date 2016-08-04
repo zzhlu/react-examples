@@ -10,17 +10,31 @@ const HelloUniverse = React.createClass({
     });
   },
   render: function () {
-    return <div>
+    return <Notelist>
+      <p>Hello,</p>
       <HelloWorld name={this.state.name}/>
-      <br/>
       <input type="text" onChange={this.handleChange}/>
-    </div>
+    </Notelist>
   },
+});
+
+const Notelist = React.createClass({
+  render: function () {
+    return (
+      <ol>
+        {
+          React.Children.map(this.props.children, function (child) {
+            return <li type="circle">{child}</li>;
+          })
+        }
+      </ol>
+    )
+  }
 });
 
 const HelloWorld = React.createClass({
   render: function () {
-    return <p>Hello,{this.props.name ? this.props.name : "World"}</p>;
+    return <p>{this.props.name ? this.props.name : "World"}</p>;
   },
 });
 
