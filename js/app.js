@@ -10,15 +10,15 @@ const HelloUniverse = React.createClass({
     });
   },
   render: function () {
-    return <Notelist>
+    return <Nodelist>
       <p>Hello,</p>
       <HelloWorld name={this.state.name}/>
       <input type="text" onChange={this.handleChange}/>
-    </Notelist>
+    </Nodelist>
   },
 });
 
-const Notelist = React.createClass({
+const Nodelist = React.createClass({
   render: function () {
     return (
       <ol>
